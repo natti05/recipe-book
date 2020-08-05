@@ -29,10 +29,11 @@ gem 'jbuilder', '~> 2.5'
 
 # added
 gem 'simple_form'
-gem 'bootstrap-sass'
+gem 'bootstrap', '~> 4.0'
 gem 'cocoon'
 gem 'paperclip'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
+gem 'devise'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
