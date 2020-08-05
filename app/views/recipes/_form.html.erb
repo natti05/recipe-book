@@ -1,0 +1,33 @@
+<%= simple_form_for @recipe do |f| %>
+<div class="field">
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.input :servers %>
+  <%= f.input :difficulty, collection: Recipe::DIFFICULTIES %>
+  <%= f.input :time %>
+  <%= f.input :image %>
+</div>
+<h3>ingredient</h3>
+<div id="ingredients">
+  <%= f.fields_for :ingredients do |ingredient| %>
+  <%= render 'ingredient_fields', :f => ingredient %>
+<% end %>
+
+</div>
+<div class="links">
+  <%= link_to_add_association 'add ingredient', f, :ingredients, class: "btn btn-secondary" %>
+</div>
+<h3>preparation</h3>
+<div id="preparations">
+  <%= f.fields_for :preparations do |preparation| %>
+  <%= render 'preparation_fields', :f => preparation %>
+<% end %>
+
+</div>
+<div class="links">
+  <%= link_to_add_association 'add preparation', f, :preparations, class: "btn btn-secondary" %>
+</div>
+<div class="actions">
+  <%= f.submit 'save', class: "btn btn-secondary" %>
+</div>
+<% end %>

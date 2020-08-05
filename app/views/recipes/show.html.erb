@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <div class="column">
+      <p>title:</p> <%= @recipe.title %>
+      <p>preparation time:</p><%= @recipe.time %>
+      <p>servers:</p> <%= @recipe.servers %>
+      <p>difficulty:</p> <%= @recipe.difficulty %>
+      <p>description:</p> <%= @recipe.description %>
+      <h3>Ingredients</h3>
+      <ul>
+        <li>
+          <p>ingredient name:</p> <%= @ingredient.name %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+ <%= link_to 'edit', edit_recipe_path(@recipe), class: "btn btn-primary" %>
+ <%= link_to 'delete', recipe_path(@recipe), class: "btn btn-primary",
+ method: :delete,
+      data: { confirm: "Are you sure?" } %>
+  <%= link_to 'back', recipes_path %>
