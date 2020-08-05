@@ -6,10 +6,20 @@
       <p>servers:</p> <%= @recipe.servers %>
       <p>difficulty:</p> <%= @recipe.difficulty %>
       <p>description:</p> <%= @recipe.description %>
+      <%= image_tag @recipe.image.url(:medium, class: "recipe_image") %>
       <h3>Ingredients</h3>
       <ul>
         <li>
-          <p>ingredient name:</p> <%= @ingredient.name %>
+          <% @recipe.ingredients.each do |ingredient| %>
+          <p>ingredient:</p> <%= ingredient.name %><p>ingredient:</p> <%= ingredient.measure %>
+        </li>
+          <% end %>
+      </ul>
+      <ul>
+        <li>
+          <% @recipe.preparations.each do |preparation| %>
+          <p>Steps:</p> <%= preparation.step %>
+          <% end %>
         </li>
       </ul>
     </div>

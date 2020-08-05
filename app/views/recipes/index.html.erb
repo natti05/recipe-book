@@ -1,7 +1,7 @@
 <h3>primeira pagina</h3>
 <%= link_to 'new', new_recipe_path, class: "btn btn-primary" %>
 <% @recipes.each do |recipe| %>
-  <%= image_tag @recipe.image.url(:medium, class: "recipe_image") %>
+  <%= image_tag recipe.image.url(:medium, class: "recipe_image") %>
   <%= link_to recipe.title, recipe_path(recipe) %>
 <% end %>
 
