@@ -34,6 +34,7 @@ gem 'cocoon'
 gem 'paperclip'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'devise'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
