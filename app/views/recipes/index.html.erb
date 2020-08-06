@@ -1,13 +1,24 @@
-<h3>primeira pagina</h3>
-<%= link_to 'new', new_recipe_path, class: "btn btn-primary" %>
-<div class="row">
-<% @recipes.each do |recipe| %>
-  <div class="col-5 card">
-    <%= link_to recipe_path(recipe) do %>
-     <%= image_tag recipe.image.url(:medium, class: "recipe_image") %>
-    <% end %>
-    <%= recipe.title %>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h3>Recipes</h3>
+      <div class="row">
+      <% @recipes.each do |recipe| %>
+      <div class="col-5 card">
+        <%= link_to recipe_path(recipe) do %>
+          <% if recipe.image.present? %>
+            <%= image_tag recipe.image.url(:medium, class: "recipe_image") %>
+          <% else %>
+            <i class="far fa-sticky-note fa-5x"></i>
+          <% end %>
+        <% end %>
+        <ul>
+          <li><%= recipe.title %></li>
+          <li><%= recipe.description %></li>
+        </ul>
+      </div>
+      <% end %>
+      </div>
+    </div>
   </div>
-<% end %>
 </div>
-

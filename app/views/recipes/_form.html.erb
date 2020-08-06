@@ -1,27 +1,37 @@
-<%= simple_form_for @recipe do |f| %>
-  <%= f.input :title %>
-  <%= f.input :description %>
-  <%= f.input :servers %>
-  <%= f.input :difficulty, collection: Recipe::DIFFICULTIES %>
-  <%= f.input :time %>
-  <%= f.input :image %>
-<h3>ingredient</h3>
-<div id="ingredients">
-  <%= f.fields_for :ingredients do |ingredient| %>
-  <%= render 'ingredient_fields', :f => ingredient %>
-<% end %>
+<div class="col">
+  <%= simple_form_for @recipe do |f| %>
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :servers %>
+    <%= f.input :difficulty, collection: Recipe::DIFFICULTIES %>
+    <%= f.input :time %>
+    <%= f.input :image %>
+  <div class="row">
+    <div class="col border mt-3">
+      <h3>ingredient</h3>
+      <div id="ingredients">
+        <%= f.fields_for :ingredients do |ingredient| %>
+        <%= render 'ingredient_fields', :f => ingredient %>
+      <% end %>
+      </div>
+      <div class="links">
+        <%= link_to_add_association 'add ingredient', f, :ingredients, class: "btn btn-secondary" %>
+      </div>
+    </div>
+     <div class="col border mt-3">
+      <h3>preparation</h3>
+      <div id="preparations">
+        <%= f.fields_for :preparations do |preparation| %>
+        <%= render 'preparation_fields', :f => preparation %>
+      <% end %>
+      </div>
+      <div class="links">
+        <%= link_to_add_association 'add preparation', f, :preparations, class: "btn btn-secondary" %>
+      </div>
+     </div>
+  </div>
+  <div class="mt-3">
+    <%= f.submit 'save', class: "btn btn-secondary" %>
+    <% end %>
+  </div>
 </div>
-<div class="links">
-  <%= link_to_add_association 'add ingredient', f, :ingredients, class: "btn btn-secondary" %>
-</div>
-<h3>preparation</h3>
-<div id="preparations">
-  <%= f.fields_for :preparations do |preparation| %>
-  <%= render 'preparation_fields', :f => preparation %>
-<% end %>
-</div>
-<div class="links">
-  <%= link_to_add_association 'add preparation', f, :preparations, class: "btn btn-secondary" %>
-</div>
-  <%= f.submit 'save', class: "btn btn-secondary" %>
-<% end %>

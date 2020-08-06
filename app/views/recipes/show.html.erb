@@ -1,33 +1,48 @@
 <div class="container">
-  <div class="row">
-    <div class="column">
-      <p>title:</p> <%= @recipe.title %>
-      <p>preparation time:</p><%= @recipe.time %>
-      <p>servers:</p> <%= @recipe.servers %>
-      <p>difficulty:</p> <%= @recipe.difficulty %>
-      <p>description:</p> <%= @recipe.description %>
-      <%= image_tag @recipe.image.url(:medium, class: "recipe_image") %>
-      <h3>Ingredients</h3>
-      <ul>
-        <li>
-          <% @recipe.ingredients.each do |ingredient| %>
-          <p>ingredient:</p> <%= ingredient.name %><p>ingredient:</p> <%= ingredient.measure %>
-        </li>
-          <% end %>
-      </ul>
-      <h3>Steps</h3>
-      <ul>
-        <li>
-          <% @recipe.preparations.each do |preparation| %>
-          <p>Steps:</p> <%= preparation.step %>
-          <% end %>
-        </li>
-      </ul>
- <%= link_to 'edit', edit_recipe_path(@recipe), class: "btn btn-primary" %>
- <%= link_to 'delete', recipe_path, class: "btn btn-primary",
- method: :delete,
-      data: { confirm: "Are you sure?" } %>
-  <%= link_to 'back', recipes_path %>
+  <div class="col">
+    <div class="card">
+      <div class="row">
+        <div class="col">
+          <%= image_tag @recipe.image.url(:medium, class: "recipe_image") %>
+        </div>
+        <div class="col">
+          <p>title:</p> <%= @recipe.title %>
+          <p>preparation time:</p><%= @recipe.time %>
+          <p>servers:</p> <%= @recipe.servers %>
+          <p>difficulty:</p> <%= @recipe.difficulty %>
+          <p>description:</p> <%= @recipe.description %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <h3>Ingredients</h3>
+        <ul>
+          <li>
+            <% @recipe.ingredients.each do |ingredient| %>
+            <p>ingredient:</p> <%= ingredient.name %>
+            <p>measure:</p> <%= ingredient.measure %>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+        <div class="col">
+          <h3>Steps</h3>
+          <ul>
+            <li>
+              <% @recipe.preparations.each do |preparation| %>
+              <p>Steps:</p> <%= preparation.step %>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+    </div>
+    <div class="d-flex justify-content-end">
+      <%= link_to 'edit', edit_recipe_path(@recipe), class: "btn btn-primary" %>
+      <%= link_to 'delete', recipe_path, class: "btn btn-primary",
+      method: :delete,
+          data: { confirm: "Are you sure?" } %>
+      <%= link_to 'back', recipes_path, class: "btn btn-primary" %>
     </div>
   </div>
 </div>
