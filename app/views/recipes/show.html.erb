@@ -3,7 +3,11 @@
     <div class="card">
       <div class="row">
         <div class="col">
-          <%= image_tag @recipe.image.url(:medium, class: "recipe_image") %>
+         <% if @recipe.image.present? %>
+            <%= image_tag @recipe.image.url(:medium, class: "recipe_image") %>
+          <% else %>
+            <i class="far fa-sticky-note fa-5x"></i>
+          <% end %>
         </div>
         <div class="col">
           <p>title:</p> <%= @recipe.title %>
