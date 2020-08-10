@@ -18,3 +18,13 @@ body {
    color: white;
    text-align: center;
 }
+
+.nav-link {
+  color: Darkgray;
+  font-weight: bold;
+  transition-duration: 0s;
+}
+
+.nav-link:hover {
+ color: Dimgray;
+}
