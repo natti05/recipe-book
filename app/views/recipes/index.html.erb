@@ -1,19 +1,18 @@
 <div class="container">
-  <div class="row">
+  <div class="row m-2">
     <div class="col">
-      <h3>Recipes</h3>
       <div class="row">
       <% @recipes.each do |recipe| %>
-      <div class="col-5 card">
+      <div class="card-recipe-index">
         <%= link_to recipe_path(recipe) do %>
           <% if recipe.image.present? %>
             <%= image_tag recipe.image.url(:medium, class: "recipe_image") %>
           <% else %>
-            <i class="far fa-sticky-note fa-5x"></i>
+            <i class="far fa-sticky-note"></i>
           <% end %>
         <% end %>
         <ul>
-          <li><%= recipe.title %></li>
+          <li style="font-weight: bold"><%= recipe.title %></li>
           <li><%= recipe.description %></li>
         </ul>
       </div>
