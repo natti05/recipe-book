@@ -5,6 +5,11 @@ body {
   display: flex;
   flex-direction: column;
 }
+ul {
+  list-style: none;
+  text-transform: capitalize;
+}
+
 .content {
   flex: 1 0 auto;
 }
@@ -19,12 +24,13 @@ body {
    text-align: center;
 }
 
-.nav-link {
-  color: Darkgray;
-  font-weight: bold;
-  transition-duration: 0s;
+// for image not posted
+.fa-sticky-note {
+  width: 300px;
+  height: 300px;
+  background-color: WhiteSmoke;
 }
 
-.nav-link:hover {
- color: Dimgray;
+i.fa-sticky-note {
+  color: gray;
 }

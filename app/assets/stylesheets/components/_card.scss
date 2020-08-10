@@ -1,0 +1,21 @@
+.card-recipe-index {
+  padding: 4px;
+  margin: 4px;
+  width: 310px;
+  height: 400px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+}
+
+.card-recipe-index:hover {
+  box-shadow: 0px 0px 6px 4px lightgray;
+}
+
+.card-title {
+ text-transform: capitalize;
+}
+
+.card-recipe-title {
+  font-weight: bold;
+  font-size: 2rem;
+}
