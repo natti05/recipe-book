@@ -1,11 +1,13 @@
 <div class="col">
+  <div class="input_form">
   <%= simple_form_for @recipe do |f| %>
-    <%= f.input :title %>
-    <%= f.input :description %>
-    <%= f.input :servers %>
-    <%= f.input :difficulty, collection: Recipe::DIFFICULTIES %>
-    <%= f.input :time %>
+    <%= f.input :title, placeholder: ".." %>
+    <%= f.input :description, placeholder: ".."%>
+    <%= f.input :servers, collection: 1..10, prompt: "Select a number" %>
+    <%= f.input :difficulty, collection: Recipe::DIFFICULTIES, prompt: "Select difficulty" %>
+    <%= f.input :time, collection: 1..200, prompt: "Select a number" %>
     <%= f.input :image %>
+  </div>
   <div class="row">
     <div class="col border mt-3">
       <h3>ingredient</h3>

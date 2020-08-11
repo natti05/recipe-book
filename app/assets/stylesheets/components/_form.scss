@@ -1,0 +1,15 @@
+.input_form {
+  width: 50%;
+}
+
+div input[type=text], select, textarea, #recipe_time, #recipe_servers, #recipe_description {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+label.file {
+  display: none;
+}
