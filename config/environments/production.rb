@@ -2,7 +2,7 @@ Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   # added for heroku
-  config.assets.initialize_on_precompile = false
+  RAILS_ENV=production bundle exec rake assets:precompile
   # Code is not reloaded between requests.
   config.cache_classes = true
 
@@ -25,9 +25,7 @@ Rails.application.configure do
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
   # Compress JavaScripts and CSS.
-
-  # commented for heroku
-  # config.assets.js_compressor = :uglifier
+  config.assets.js_compressor = :uglifier
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
