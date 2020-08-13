@@ -16,5 +16,5 @@ module RecipeBook
     # the framework and any gems in your application.
   end
 # for heroku
-# config.assets.initialize_on_precompile = false
+config.assets.initialize_on_precompile = false
 end
