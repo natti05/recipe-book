@@ -15,6 +15,6 @@ module RecipeBook
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
     # for heroku
-    config.assets.initialize_on_precompile = false
+    config.assets.initialize_on_precompile = true
   end
 end
