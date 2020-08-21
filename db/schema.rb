@@ -12,10 +12,13 @@
 
 ActiveRecord::Schema.define(version: 2020_08_05_081452) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "ingredients", force: :cascade do |t|
     t.string "name"
     t.string "measure"
-    t.integer "recipe_id"
+    t.bigint "recipe_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["recipe_id"], name: "index_ingredients_on_recipe_id"
@@ -23,7 +26,7 @@ ActiveRecord::Schema.define(version: 2020_08_05_081452) do
 
   create_table "preparations", force: :cascade do |t|
     t.text "step"
-    t.integer "recipe_id"
+    t.bigint "recipe_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["recipe_id"], name: "index_preparations_on_recipe_id"
@@ -56,4 +59,6 @@ ActiveRecord::Schema.define(version: 2020_08_05_081452) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "ingredients", "recipes"
+  add_foreign_key "preparations", "recipes"
 end
